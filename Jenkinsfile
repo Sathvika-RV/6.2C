@@ -10,7 +10,7 @@ pipeline {
                          // send email notification with security scan results
                 emailext body: "Security Scan results attached", 
                 subject: "Security Scan Results: ${currentBuild.result}", 
-                to: "sathvikarv97@gmail.com", 
+                to: "sathvikarv97@gmail.com"
              
   }
 }
