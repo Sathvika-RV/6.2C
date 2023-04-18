@@ -24,7 +24,7 @@ pipeline {
 
         stage('Unit and Integration Tests') {
             tools {
-                maven 'Maven'
+                maven 'Maven installation'
             }
             steps {
                 sh 'mvn test'
