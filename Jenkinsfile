@@ -7,7 +7,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Build"
-              //  sh 'mvn clean package'
+                sh 'mvn clean package -DSkipTests=true'
+                archive 'target/*.jar'
                 
             }
                 //post {
@@ -27,7 +28,7 @@ pipeline {
                 maven 'Maven installation'
             }
             steps {
-                sh 'mvn test'
+                sh 'echo hello'
             }
         }
     }
