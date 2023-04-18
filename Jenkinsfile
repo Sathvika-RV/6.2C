@@ -5,6 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Running unit tests..."
+            }
                 post {
                     always {
                          // send email notification with security scan results
@@ -14,7 +15,7 @@ pipeline {
              
   }
 }
-            }
+            
         }
     }
 }
