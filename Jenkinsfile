@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'echo "Building to Staging"'
+                echo "Running unit tests..."
             }
         }
     }
