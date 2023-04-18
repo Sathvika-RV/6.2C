@@ -1,15 +1,19 @@
 pipeline {
     agent any
-
+    tools {
+    maven 'Maven'
+    }
     stages {
         stage('Build') {
             steps {
-                echo "Running unit tests..."
+                echo "Build"
+                sh 'mvn clean package'
+                
             }
                 post {
                     always {
                          // send email notification with security scan results
-                mail body: "Security Scan results attached", 
+                mail body: "Build results attached", 
                 subject: "Security Scan Results: ${currentBuild.result}", 
                 to: "sathvikarv97@gmail.com"
              
