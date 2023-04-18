@@ -17,8 +17,8 @@ pipeline {
               //  subject: "Security Scan Results: ${currentBuild.result}", 
              //   to: "sathvikarv97@gmail.com"
              
-  }
-}
+//  }
+//}
             
         }
 
