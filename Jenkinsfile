@@ -25,19 +25,36 @@ pipeline {
         }
 
         
-        stage ('Initialize') {
-            steps {
-                bat '''
-                    echo "PATH = ${PATH}"
-                    echo "M2_HOME = ${M2_HOME}"
-                ''' 
-            }
-        }
-
         stage('Unit and Integration Tests') {
-            steps {
-                sh 'echo hello'
-            }
+      steps {
+        sh 'mvn test'
+      }
+    }
+    stage('Code Analysis') {
+      steps {
+        withMaven(maven: 'Maven') {
+          sh 'mvn checkstyle:checkstyle'
         }
+      }
+    }
+    stage('Security Scan') {
+      steps {
+        sh 'mvn dependency-check:check'
+      }
+    }
+    stage('Deploy to Staging') {
+      steps {
+        sh 'echo "Deploying to Staging"'
+      }
+    }
+    stage('Integration Tests on Staging') {
+      steps {
+        sh 'echo "Running Integration Tests on Staging"'
+      }
+    }
+    stage('Deploy to Production') {
+      steps {
+        sh 'echo "Deploying to Production"'
+      }
     }
 }
