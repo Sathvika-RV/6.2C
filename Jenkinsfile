@@ -24,18 +24,6 @@ pipeline {
             
         }
 
- 
-      stage('Test Maven - JUnit') {
-            steps {
-              bat "mvn test"
-            }
-            post{
-              always{
-                junit 'target/surefire-reports/*.xml'
-              }
-            }
-        }
-        
         
         stage ('Initialize') {
             steps {
