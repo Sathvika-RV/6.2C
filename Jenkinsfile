@@ -34,9 +34,6 @@ pipeline {
         }
 
         stage('Unit and Integration Tests') {
-            tools {
-                maven 'Maven installation'
-            }
             steps {
                 sh 'echo hello'
             }
