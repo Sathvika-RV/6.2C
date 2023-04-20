@@ -14,7 +14,7 @@ pipeline {
             }
                 post {
                     always {
-                          send email notification with security scan results
+                          //send email notification with security scan results
                 mail body: "Build results attached", 
                 subject: "build Results: ${currentBuild.result}", 
                 to: "sathvikarv97@gmail.com"
