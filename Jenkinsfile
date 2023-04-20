@@ -24,12 +24,7 @@ pipeline {
             
         }
 
-        stage('Build Artifact') {
-            steps {
-              bat "mvn clean package -DskipTests=true"
-              archive 'target/*.jar' 
-            }  
-       }
+ 
       stage('Test Maven - JUnit') {
             steps {
               bat "mvn test"
