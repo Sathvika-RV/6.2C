@@ -4,11 +4,11 @@ pipeline {
     maven 'Maven installation'
     }
     stages {
-        stage('Build') {
+        stage('Building') {
             steps {
                 echo "Build"
-                sh 'mvn clean package -DSkipTests=true'
-                archive 'target/*.jar'
+                //sh 'mvn clean package -DSkipTests=true'
+                //archive 'target/*.jar'
                 
             }
                 //post {
@@ -21,6 +21,18 @@ pipeline {
 //  }
 //}
             
+        }
+        
+        
+         stage ('Build') {
+            steps {
+                sh 'mvn -Dmaven.test.failure.ignore=true install' 
+            }
+            post {
+                success {
+                    junit 'target/surefire-reports/**/*.xml' 
+                }
+            }
         }
 
         stage('Unit and Integration Tests') {
