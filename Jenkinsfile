@@ -8,19 +8,19 @@ pipeline {
             steps {
                 echo "Build"
                 bat "mvn --version"
-                //sh 'mvn clean package -DSkipTests=true'
-                //archive 'target/*.jar'
+                bat 'mvn clean package -DSkipTests=true'
+                archive 'target/*.jar'
                 
             }
-                //post {
-                   // always {
-                         // send email notification with security scan results
-              //  mail body: "Build results attached", 
-              //  subject: "Security Scan Results: ${currentBuild.result}", 
-             //   to: "sathvikarv97@gmail.com"
+                post {
+                    always {
+                          send email notification with security scan results
+                mail body: "Build results attached", 
+                subject: "build Results: ${currentBuild.result}", 
+                to: "sathvikarv97@gmail.com"
              
-//  }
-//}
+  }
+}
             
         }
 
