@@ -1,12 +1,13 @@
 pipeline {
     agent any
     tools {
-    maven 'Maven 3.9.1'
+    maven 'Maven 3.8.6'
     }
     stages {
         stage('Building') {
             steps {
                 echo "Build"
+                sh "mvn --version"
                 //sh 'mvn clean package -DSkipTests=true'
                 //archive 'target/*.jar'
                 
