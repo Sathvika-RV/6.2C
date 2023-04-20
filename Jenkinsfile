@@ -7,7 +7,7 @@ pipeline {
         stage('Building') {
             steps {
                 echo "Build"
-                sh "mvn --version"
+                bat "mvn --version"
                 //sh 'mvn clean package -DSkipTests=true'
                 //archive 'target/*.jar'
                 
