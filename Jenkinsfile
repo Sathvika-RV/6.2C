@@ -16,6 +16,7 @@ pipeline {
         stage('Unit and Integration Tests') {
       steps {
         //sh 'mvn test'
+          echo "Doing Unit and integration tests"
       }
     }
     stage('Code Analysis') {
