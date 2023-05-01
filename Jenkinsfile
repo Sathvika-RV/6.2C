@@ -21,9 +21,7 @@ pipeline {
     }
     stage('Code Analysis') {
       steps {
-        withMaven(maven: 'Maven') {
-          //sh 'mvn checkstyle:checkstyle'
-        }
+        echo "Analysing code using xxx"
       }
     }
     stage('Security Scan') {
