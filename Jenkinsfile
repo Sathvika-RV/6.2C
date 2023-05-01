@@ -27,7 +27,7 @@ pipeline {
     stage('Security Scan') {
       steps {
        // sh 'mvn dependency-check:check'
-          
+          echo "Security scan using SAST- Sonarcube"
         post {
               always {
                 //send email notification with security scan results
@@ -40,17 +40,17 @@ pipeline {
     }
     stage('Deploy to Staging') {
       steps {
-        sh 'echo "Deploying to Staging"'
+        echo "Deploying to Staging"
       }
     }
     stage('Integration Tests on Staging') {
       steps {
-        sh 'echo "Running Integration Tests on Staging"'
+        echo "Running Integration Tests on Staging"
       }
     }
     stage('Deploy to Production') {
       steps {
-        sh 'echo "Deploying to Production"'
+        echo "Deploying to Production"
       }
     }
 }
