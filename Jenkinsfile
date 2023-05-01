@@ -34,7 +34,7 @@ pipeline {
          post {
               always {
                 //send email notification with security scan results
-                emailext mail body: "Build Scan results attached", 
+                emailext body: "Build Scan results attached", 
                 subject: "Test Results: ${currentBuild.result}", 
                 to: "sathvikarv97@gmail.com"      
               }
