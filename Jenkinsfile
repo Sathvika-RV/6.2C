@@ -30,14 +30,15 @@ pipeline {
           echo "Security scan using SAST- Sonarcube"
        
       }
-    }
+    
          post {
               always {
                 //send email notification with security scan results
                 mail body: "Build Scan results attached", 
                 subject: "Test Results: ${currentBuild.result}", 
                 to: "sathvikarv97@gmail.com"      
-  }
+              }
+     }
 }
     stage('Deploy to Staging') {
       steps {
