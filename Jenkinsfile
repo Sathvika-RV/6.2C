@@ -28,16 +28,17 @@ pipeline {
       steps {
        // sh 'mvn dependency-check:check'
           echo "Security scan using SAST- Sonarcube"
-        post {
+       
+      }
+    }
+         post {
               always {
                 //send email notification with security scan results
-                mail body: "Build Test results attached", 
+                mail body: "Build Scan results attached", 
                 subject: "Test Results: ${currentBuild.result}", 
                 to: "sathvikarv97@gmail.com"      
   }
 }
-      }
-    }
     stage('Deploy to Staging') {
       steps {
         echo "Deploying to Staging"
