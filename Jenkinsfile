@@ -33,7 +33,7 @@ pipeline {
     
          post {
               always {
-             emailext body: "Build Scan results attached\n\n${BUILD_LOG, maxLines=9999, escapeHtml=false}", 
+             emailext body: "Build Scan results attached\n\n", 
              subject: "Test Results: ${currentBuild.result}", 
              to: "sathvikarv97@gmail.com",
              attachLog: true,
