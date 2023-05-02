@@ -36,7 +36,7 @@ pipeline {
              emailext body: "Build Scan results attached\n\n", 
              subject: "Test Results: ${currentBuild.result}", 
              to: "sathvikarv97@gmail.com",
-             attachLog: true,
+             attachLog: true
              
               }
      }
