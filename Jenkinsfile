@@ -36,7 +36,9 @@ pipeline {
                 //send email notification with security scan results
                 emailext body: "Build Scan results attached", 
                 subject: "Test Results: ${currentBuild.result}", 
-                to: "sathvikarv97@gmail.com"      
+                to: "sathvikarv97@gmail.com",
+                attachments: [[$class: 'ArtifactManagerAttachment', artifactManager: [$class: 'BuildArtifactsArtifactManager'], filePattern: '**/*', displayName: 'build_logs']],
+                attachLog: true
               }
      }
 }
